@@ -14,8 +14,7 @@ public class SeleniumTest {
 
         driver.findElement(By.id("email")).sendKeys("yourusername@gmail.com");
         driver.findElement(By.id("pass")).sendKeys("password");
-        Thread.sleep(3000);
+       Thread.sleep(3000);
         driver.findElement(By.name("login")).click();
-
     }
 }
