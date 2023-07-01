@@ -63,10 +63,6 @@ public class SeleniumFacebookRegister {
          WebElement codeVerification= driver.findElement(By.id("code_in_cliff"));
          codeVerification.sendKeys("12345");
 
-
-
-
-
-          driver.close();
+         driver.close();
     }
 }
