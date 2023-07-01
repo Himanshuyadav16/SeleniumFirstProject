@@ -21,7 +21,6 @@ public class SeleniumFacebookRegister {
         WebElement lastName = driver.findElement(By.name("lastname"));
         lastName.sendKeys("Yadav");
 
-
         WebElement email = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div[2]/div/div[2]/div/div/div[1]/form/div[1]/div[2]/div/div[1]/input"));
         email.sendKeys("yadav1607@gmail.com");
 
@@ -61,6 +60,9 @@ public class SeleniumFacebookRegister {
 
          WebElement codeVerification= driver.findElement(By.id("code_in_cliff"));
          codeVerification.sendKeys("12345");
+
+
+
 
          driver.close();
     }
