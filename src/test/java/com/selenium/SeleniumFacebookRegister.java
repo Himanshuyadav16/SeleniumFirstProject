@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-
 public class SeleniumFacebookRegister {
     public static void main(String[] args) throws InterruptedException {
 
@@ -21,7 +20,6 @@ public class SeleniumFacebookRegister {
 
         WebElement lastName = driver.findElement(By.name("lastname"));
         lastName.sendKeys("Yadav");
-
 
         WebElement email = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div[2]/div/div[2]/div/div/div[1]/form/div[1]/div[2]/div/div[1]/input"));
         email.sendKeys("yadav1607@gmail.com");
@@ -66,7 +64,6 @@ public class SeleniumFacebookRegister {
 
 
 
-
-          driver.close();
+         driver.close();
     }
 }
