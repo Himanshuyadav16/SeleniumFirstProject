@@ -2,6 +2,7 @@ package pageObjectModel;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 
 public class BaseClass {
@@ -14,7 +15,7 @@ public class BaseClass {
     }
 
     @AfterTest
-    public void afterSuite() {
-        driver.close();
+    public void afterTest() {
+      //  driver.close();
     }
 }

@@ -3,10 +3,7 @@ package pageObjectModel.testCases;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import pageObjectModel.BaseClass;
-import pageObjectModel.pages.HomePage;
-import pageObjectModel.pages.LoginPage;
-import pageObjectModel.pages.SignUpPage;
-import pageObjectModel.pages.SingUpPasswordPage;
+import pageObjectModel.pages.*;
 
 public class LoginTestCase extends BaseClass {
 
@@ -17,6 +14,7 @@ public class LoginTestCase extends BaseClass {
         homePage.signUp();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.createAccount();
+        driver.close();
 
     }
     @Test
@@ -24,6 +22,10 @@ public class LoginTestCase extends BaseClass {
         WebDriver driver = getDriver();
         HomePage homePage=new HomePage(driver);
         homePage.signUp();
+        homePage.searchButton();
+        homePage.customerService();
+        homePage.searchAddress();
+        driver.close();
     }
     @Test
     public void signUpTest(){
@@ -32,9 +34,9 @@ public class LoginTestCase extends BaseClass {
         homePage.signUp();
         SignUpPage signUpPage=new SignUpPage(driver);
         signUpPage.signIn();
+        driver.close();
 
     }
-
 
     @Test
     public  void password(){
@@ -45,7 +47,29 @@ public class LoginTestCase extends BaseClass {
         signUpPage.signIn();
         SingUpPasswordPage singUpPasswordPage=new SingUpPasswordPage(driver);
         singUpPasswordPage.password();
+        driver.close();
 
     }
+
+    @Test
+    public void phonesSearchTest(){
+        WebDriver driver=getDriver();
+        HomePage homePage=new HomePage(driver);
+        homePage.searchButton();
+        PhonesPages phonesPages=new PhonesPages(driver);
+        phonesPages.phoneSearch();
+        driver.close();
+
+    }
+     @Test
+     public void customerService(){
+         WebDriver driver=getDriver();
+         HomePage homePage=new HomePage(driver);
+         homePage.customerService();
+         CustomerPage customerPage=new CustomerPage(driver);
+         customerPage.yourOrder();
+         driver.close();
+
+     }
 
 }

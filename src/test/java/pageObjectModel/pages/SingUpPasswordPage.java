@@ -17,7 +17,7 @@ public class SingUpPasswordPage extends BasePage{
     }
 
     public void password(){
-        password.sendKeys("Himanshu@12");
+        password.sendKeys("8120164578");
         signInButton.click();
     }
 }

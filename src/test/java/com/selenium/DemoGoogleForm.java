@@ -10,11 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-<<<<<<< HEAD
-import pageObjectModel.utils.ApplicationProperties;
-=======
->>>>>>> 71037beaca6c2231b3e2dfc485edcd39440d3019
-
 
 import java.time.Duration;
 
@@ -84,10 +79,6 @@ public class DemoGoogleForm {
     }
         @AfterSuite
         public void afterSuite() {
-<<<<<<< HEAD
             driver.close();
-=======
-        //    driver.close();
->>>>>>> 71037beaca6c2231b3e2dfc485edcd39440d3019
     }
 }
