@@ -4,16 +4,29 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+import pageObjectModel.utils.ApplicationProperties;
+
+import java.time.Duration;
 
 public class SeleniumFacebookRegister {
-    public static void main(String[] args) throws InterruptedException {
+    public String baseUrl = ApplicationProperties.INSTANCE.getUrl();
+    String driverPath = "src/main/resources/chromedriver";
+    public WebDriver driver ;
+    @BeforeSuite
+    public void beforeSuite() {
+        System.setProperty("webdriver.chorme.driver", driverPath);
+        driver = new ChromeDriver();
+        driver.get(baseUrl);
+    }
 
-        System.setProperty("webdriver.chorme.driver", "src/main/resources/chromedriver");
-
-        WebDriver driver = new ChromeDriver();
-
-        driver.get("https://www.facebook.com/reg/");
+    @Test
+    public void GetTest() {
 
         WebElement firstName = driver.findElement(By.name("firstname"));
         firstName.sendKeys("Suryakumar");
@@ -47,7 +60,7 @@ public class SeleniumFacebookRegister {
 
         WebElement pronoun = driver.findElement(By.name("preferred_pronoun"));
         Select selectPronoun = new Select(pronoun);
-        selectPronoun.selectByValue("6");
+        selectPronoun.selectByValue("1");
 
         WebElement optionalGender = driver.findElement(By.name("custom_gender"));
         optionalGender.sendKeys("Male");
@@ -55,15 +68,16 @@ public class SeleniumFacebookRegister {
         WebElement submitButton = driver.findElement(By.name("websubmit"));
         submitButton.click();
 
-         WebElement continueButton = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/div/div[2]/div/div/div/div[1]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div[1]/div/span/span"));
-         continueButton.click();
+        WebElement continueButton = driver.findElement(By.xpath("//*[@id='scrollview']/div/div/div/div[2]/div/div/div/div[1]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div[1]/div/span/span"));
+        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='scrollview']/div/div/div/div[2]/div/div/div/div[1]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div[1]/div/span/span")));
+        continueButton.click();
 
-         WebElement codeVerification= driver.findElement(By.id("code_in_cliff"));
-         codeVerification.sendKeys("12345");
-
-
-
-
-         driver.close();
+       WebElement codeVerification = driver.findElement(By.id("code_in_cliff"));
+        codeVerification.sendKeys("12345");
+    }
+    @AfterSuite
+    public void afterSuite() {
+        driver.close();
     }
 }
